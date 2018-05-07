@@ -102,7 +102,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-// static 
+// static - react build
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get("/", (req, res)=>{
@@ -121,6 +121,20 @@ app.get("/", (req, res)=>{
 
 app.use('/api/page', pageRouter);
 
+/** for frontend react router */
+app.get("/:puid", (req, res)=>{
+    if(process.env.IS_HEROKU_DEPLOYMENT){
+        var _path = path.join(__dirname + 'index.html'); /** this is to use static page, which is Anguar 4 build */
+        console.log({"root/:puid":"root/:puid"});
+        res.sendFile(_path)
+    }else{
+        // var _path = path.join(__dirname + 'index.html'); /** this is to use static page, which is Anguar 4 build */
+        // console.log({"root/:puid":"root/:puid"});
+        // res.sendFile(_path)
+        console.log({"root":"local mode"});
+        res.json({"root":"local mode"})
+    }
+})
 server.listen(port, ()=>{
     console.log('Server is running at: ' + port);
 })

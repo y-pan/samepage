@@ -1,3 +1,11 @@
+ignores/
+
+
+config/secret.json
+/config/secret.json
+
+
+
 # Logs
 logs
 *.log
@@ -36,8 +44,7 @@ build/Release
 node_modules/
 jspm_packages/
 
-config/secret.json
-/config/secret.json
+
 
 # Typescript v1 declaration files
 typings/
