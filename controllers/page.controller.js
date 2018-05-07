@@ -4,16 +4,23 @@ const pageModel = require('../models/page.model');
 
 let emailCred = {};
 let baseUrl = null;
-if(process.env.IS_HEROKU_DEPLOYMENT){
-    emailCred['user'] = process.env.eu;
-    emailCred['pass'] = process.env.ep;
-    baseUrl = "https://samepage1.herokuapp.com/";
-}else{
-    const cred = require('../config/secret.json');
-    emailCred['user'] = cred.eu;
-    emailCred['pass'] = cred.ep;
-    baseUrl = "http://localhost:8000/";
-}
+
+// if(process.env.IS_HEROKU_DEPLOYMENT){
+//     emailCred['user'] = process.env.eu;
+//     emailCred['pass'] = process.env.ep;
+//     baseUrl = "https://samepage1.herokuapp.com/";
+// }else{
+//     const cred = require('../config/secret.json');
+//     emailCred['user'] = cred.eu;
+//     emailCred['pass'] = cred.ep;
+//     baseUrl = "http://localhost:8000/";
+// }
+
+emailCred['user'] = process.env.eu;
+emailCred['pass'] = process.env.ep;
+baseUrl = "https://samepage1.herokuapp.com/";
+
+
 const gSend = require('gmail-send')({
     user:emailCred['user'],
     pass:emailCred['pass']

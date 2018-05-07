@@ -111,6 +111,9 @@ app.get("/", (req, res)=>{
         console.log({"root":"heroku mode"});
         res.sendFile(_path)
     }else{
+        // var _path = path.join(__dirname + 'index.html'); /** this is to use static page, which is Anguar 4 build */
+        // console.log({"root":"heroku mode"});
+        // res.sendFile(_path)
         console.log({"root":"local mode"});
         res.json({"root":"local mode"})
     }
