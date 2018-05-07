@@ -135,6 +135,11 @@ app.get("/:puid", (req, res)=>{
         res.json({"root":"local mode"})
     }
 })
+
+app.get("/v", (req, res)=>{
+    res.json({"version":"v1.0"})
+})
+
 server.listen(port, ()=>{
     console.log('Server is running at: ' + port);
 })
