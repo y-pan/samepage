@@ -98,8 +98,16 @@ const share = (req, res) => {
     emailJson.from = req.body.from || "N/A";
     emailJson.to = req.body.emails; /* array of emails*/
     emailJson.subject = "Page shared with you on SamePage";
-    emailJson.text = `A page is shared with you, created by ${emailJson.from}. You can open the link in your browser:\n${url}\n\nPlease do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
-    console.log(emailJson)
+    // emailJson.text = `A page is shared with you, created by ${emailJson.from}. You can open the link in your browser:\n${url}\n\nPlease do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
+    emailJson.text = `A page is shared with you, created by ${emailJson.from}. You can open the link in your browser:\n${url}\n
+    If you're using mobile/tablet and page doesn't open correctly, please go to: ${baseUrl}\n
+    and paste ${puid} to textbox right after "Open page=>" button.
+
+    \n\nPlease do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
+
+    /** for mobile react path not found workaround */
+    
+    // console.log(emailJson)
 
     gSend(emailJson, (err, data)=>{
         if(err){
