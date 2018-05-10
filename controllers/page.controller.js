@@ -99,11 +99,17 @@ const share = (req, res) => {
     emailJson.to = req.body.emails; /* array of emails*/
     emailJson.subject = "Page shared with you on SamePage";
     // emailJson.text = `A page is shared with you, created by ${emailJson.from}. You can open the link in your browser:\n${url}\n\nPlease do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
-    emailJson.text = `A page is shared with you, created by ${emailJson.from}. You can open the link in your browser:\n${url}\n
-    If you're using mobile/tablet and page doesn't open correctly, please go to: ${baseUrl}\n
-    and paste ${puid} to textbox right after "Open page=>" button.
+    emailJson.text = `A page is shared with you, created by ${emailJson.from}. 
+You can open the link in your web browser:
+${url}
+    
+If you're using mobile/tablet and page doesn't open correctly, please copy the following id: 
+    ${puid}
+Then open this link in browser: 
+    ${baseUrl}
+Then paste the id into the textbox, right after "Open page=>" button, then click the button to view.
 
-    \n\nPlease do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
+Please do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
 
     /** for mobile react path not found workaround */
     
