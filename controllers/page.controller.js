@@ -107,7 +107,7 @@ If you're using mobile/tablet and page doesn't open correctly, please copy the f
     ${puid}
 Then open this link in browser: 
     ${baseUrl}
-Then paste the id into the textbox, right after "Open page=>" button, then click the button to view.
+Then paste the id into the textbox, right after "Open Page" button, then click the button to view.
 
 Please do not reply this email, as it's not monitored by person.\n\nSamePage Admin`;
 
